@@ -8,7 +8,7 @@ imports:
 #        query_cache_driver: apc
 
 framework:
-    #router:   { resource: "%kernel.root_dir%/config/routing_prod.yml" }
+    router:   { resource: "%kernel.root_dir%/config/routing_prod.yml" }
     profiler: { only_exceptions: false }
     
 web_profiler:

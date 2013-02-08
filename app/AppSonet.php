@@ -3,8 +3,8 @@
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
-class AppKernel extends Kernel
-{
+class AppSonet extends Kernel
+{    
     public function registerBundles()
     {
         $bundles = array(
@@ -20,8 +20,12 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
         );
+        
+        if (in_array($this->getEnvironment(), array('prod'))) {
+            //$bundles[] = new Sonet\Kernel\SonetKernel();
+        }
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+        if (in_array($this->getEnvironment(), array('dev', 'test', 'prod'))) {
             $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();

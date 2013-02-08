@@ -1,0 +1,3 @@
+_main:
+    pattern:  /{hoo}
+    defaults: { _controller: SonetKernel:Main:run }
