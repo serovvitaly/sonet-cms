@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'index' => 'index.php',
+	'index' => '',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -189,6 +189,7 @@ return array(
 		'Section'    	=> 'Laravel\\Section',
 		'Session'    	=> 'Laravel\\Session',
 		'Str'        	=> 'Laravel\\Str',
+        'Symfony'       => 'Laravel\\vendor\\Symfony',
 		'Task'       	=> 'Laravel\\CLI\\Tasks\\Task',
 		'URI'        	=> 'Laravel\\URI',
 		'Validator'  	=> 'Laravel\\Validator',
