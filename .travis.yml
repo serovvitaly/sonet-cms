@@ -1,6 +1,10 @@
 language: php
 
 php:
+  - 5.3.3
   - 5.3
+  - 5.4
 
-script: "php artisan test:core"
+before_script: composer install
+
+script: phpunit -c app

@@ -1,67 +1,176 @@
-# [Laravel](http://laravel.com) - A PHP Framework For Web Artisans
+Symfony Standard Edition
+========================
 
-Laravel is a clean and classy framework for PHP web development. Freeing you
-from spaghetti code, Laravel helps you create wonderful applications using
-simple, expressive syntax. Development should be a creative experience that you
-enjoy, not something that is painful. Enjoy the fresh air.
+Welcome to the Symfony Standard Edition - a fully-functional Symfony2
+application that you can use as the skeleton for your new applications.
 
-[Official Website & Documentation](http://laravel.com)
+This document contains information on how to download, install, and start
+using Symfony. For a more detailed explanation, see the [Installation][1]
+chapter of the Symfony Documentation.
 
-## Feature Overview
+1) Installing the Standard Edition
+----------------------------------
 
-- Simple routing using Closures or controllers.
-- Views and templating.
-- Driver based session and cache handling.
-- Database abstraction with query builder.
-- Authentication.
-- Migrations.
-- PHPUnit Integration.
-- A lot more.
+When it comes to installing the Symfony Standard Edition, you have the
+following options.
 
-## A Few Examples
+### Use Composer (*recommended*)
 
-### Hello World:
+As Symfony uses [Composer][2] to manage its dependencies, the recommended way
+to create a new project is to use it.
 
-```php
-<?php
+If you don't have Composer yet, download it following the instructions on
+http://getcomposer.org/ or just run the following command:
 
-Route::get('/', function()
-{
-	return "Hello World!";
-});
-```
+    curl -s https://getcomposer.org/installer | php
 
-### Passing Data To Views:
+Then, use the `create-project` command to generate a new Symfony application:
 
-```php
-<?php
+    php composer.phar create-project symfony/framework-standard-edition path/to/install 2.1.x-dev
 
-Route::get('user/(:num)', function($id)
-{
-	$user = DB::table('users')->find($id);
+For an exact version, replace 2.1.x-dev with the latest Symfony version (e.g. 2.1.1).
 
-	return View::make('profile')->with('user', $user);
-});
-```
+Composer will install Symfony and all its dependencies under the
+`path/to/install` directory.
 
-### Redirecting & Flashing Data To The Session:
+### Download an Archive File
 
-```php
-<?php
+To quickly test Symfony, you can also download an [archive][3] of the Standard
+Edition and unpack it somewhere under your web server root directory.
 
-return Redirect::to('profile')->with('message', 'Welcome Back!');
-```
+If you downloaded an archive "without vendors", you also need to install all
+the necessary dependencies. Download composer (see above) and run the
+following command:
 
-## Contributing to Laravel
+    php composer.phar install
 
-Contributions are encouraged and welcome; however, please review the Developer
-Certificate of Origin in the "license.txt" file included in the repository. All
-commits must be signed off using the `-s` switch.
+2) Checking your System Configuration
+-------------------------------------
 
-```bash
-git commit -s -m "this commit will be signed off automatically!"
-```
+Before starting coding, make sure that your local system is properly
+configured for Symfony.
 
-## License
+Execute the `check.php` script from the command line:
 
-Laravel is open-sourced software licensed under the MIT License.
+    php app/check.php
+
+Access the `config.php` script from a browser:
+
+    http://localhost/path/to/symfony/app/web/config.php
+
+If you get any warnings or recommendations, fix them before moving on.
+
+3) Browsing the Demo Application
+--------------------------------
+
+Congratulations! You're now ready to use Symfony.
+
+From the `config.php` page, click the "Bypass configuration and go to the
+Welcome page" link to load up your first Symfony page.
+
+You can also use a web-based configurator by clicking on the "Configure your
+Symfony Application online" link of the `config.php` page.
+
+To see a real-live Symfony page in action, access the following page:
+
+    web/app_dev.php/demo/hello/Fabien
+
+4) Getting started with Symfony
+-------------------------------
+
+This distribution is meant to be the starting point for your Symfony
+applications, but it also contains some sample code that you can learn from
+and play with.
+
+A great way to start learning Symfony is via the [Quick Tour][4], which will
+take you through all the basic features of Symfony2.
+
+Once you're feeling good, you can move onto reading the official
+[Symfony2 book][5].
+
+A default bundle, `AcmeDemoBundle`, shows you Symfony2 in action. After
+playing with it, you can remove it by following these steps:
+
+  * delete the `src/Acme` directory;
+
+  * remove the routing entries referencing AcmeBundle in
+    `app/config/routing_dev.yml`;
+
+  * remove the AcmeBundle from the registered bundles in `app/AppKernel.php`;
+
+  * remove the `web/bundles/acmedemo` directory;
+
+  * remove the `security.providers`, `security.firewalls.login` and
+    `security.firewalls.secured_area` entries in the `security.yml` file or
+    tweak the security configuration to fit your needs.
+
+What's inside?
+---------------
+
+The Symfony Standard Edition is configured with the following defaults:
+
+  * Twig is the only configured template engine;
+
+  * Doctrine ORM/DBAL is configured;
+
+  * Swiftmailer is configured;
+
+  * Annotations for everything are enabled.
+
+It comes pre-configured with the following bundles:
+
+  * **FrameworkBundle** - The core Symfony framework bundle
+
+  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
+    template and routing annotation capability
+
+  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+
+  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+
+  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
+    component
+
+  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
+    sending emails
+
+  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+
+  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
+    library
+
+  * [**JMSSecurityExtraBundle**][13] - Allows security to be added via
+    annotations
+
+  * [**JMSDiExtraBundle**][14] - Adds more powerful dependency injection
+    features
+
+  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
+    the web debug toolbar
+
+  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
+    configuring and working with Symfony distributions
+
+  * [**SensioGeneratorBundle**][15] (in dev/test env) - Adds code generation
+    capabilities
+
+  * **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example
+    code
+
+Enjoy!
+
+[1]:  http://symfony.com/doc/2.1/book/installation.html
+[2]:  http://getcomposer.org/
+[3]:  http://symfony.com/download
+[4]:  http://symfony.com/doc/2.1/quick_tour/the_big_picture.html
+[5]:  http://symfony.com/doc/2.1/index.html
+[6]:  http://symfony.com/doc/2.1/bundles/SensioFrameworkExtraBundle/index.html
+[7]:  http://symfony.com/doc/2.1/book/doctrine.html
+[8]:  http://symfony.com/doc/2.1/book/templating.html
+[9]:  http://symfony.com/doc/2.1/book/security.html
+[10]: http://symfony.com/doc/2.1/cookbook/email.html
+[11]: http://symfony.com/doc/2.1/cookbook/logging/monolog.html
+[12]: http://symfony.com/doc/2.1/cookbook/assetic/asset_management.html
+[13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
+[14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
+[15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
