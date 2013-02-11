@@ -34,6 +34,9 @@
 
 Route::get('/', function()
 {
+    
+    Admin::foo();
+    
 	return View::make('home.index');
 });
 

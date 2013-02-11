@@ -152,6 +152,7 @@ return array(
 	*/
 
 	'aliases' => array(
+        'Admin'         => 'Admin\\Admin',
 		'Auth'       	=> 'Laravel\\Auth',
 		'Authenticator' => 'Laravel\\Auth\\Drivers\\Driver',
 		'Asset'      	=> 'Laravel\\Asset',

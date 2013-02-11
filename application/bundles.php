@@ -45,5 +45,14 @@ return array(
             )
         )
     ),
+    
+    'admin' => array(
+        'location' => 'Admin', 
+        'autoloads' => array(
+            'map' => array(
+                'Admin\\Admin' => '(:bundle)/admin.php',
+            )
+        )
+    ),
 
 );
