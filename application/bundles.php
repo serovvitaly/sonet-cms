@@ -47,11 +47,16 @@ return array(
     ),
     
     'admin' => array(
-        'location' => 'Admin', 
+        'location' => 'Admin',
+        'handles'  => 'admin', 
         'autoloads' => array(
             'map' => array(
-                'Admin\\Admin' => '(:bundle)/admin.php',
-            )
+                //'Admin' => '(:bundle)/admin.php',
+                'Admin_Base_Controller' => '(:bundle)/controllers/base.php',
+            ),
+            /*'directories' => array(
+                '(:bundle)/controllers',
+            )*/
         )
     ),
 
