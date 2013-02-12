@@ -26,6 +26,29 @@ class Admin_Base_Controller extends Controller
         
         $this->layout = View::make('admin::_layout');
         
+        $this->layout->topmenu = array(
+            array(
+                'title' => 'Администрирование',
+                'id'    => 'administrate',
+                'items' => array(
+                    array(
+                        'title' => 'Управление пользователями',
+                        'href'  => 'foo/bar'
+                    ),
+                )
+            ),
+            array(
+                'title' => 'База данных',
+                'id'    => 'database',
+                'items' => array(
+                    array(
+                        'title' => 'Управление пользователями',
+                        'href'  => 'foo/bar'
+                    ),
+                )
+            ),
+        );
+        
     }
     
 
