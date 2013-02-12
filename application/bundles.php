@@ -51,7 +51,7 @@ return array(
         'handles'  => 'admin', 
         'autoloads' => array(
             'map' => array(
-                //'Admin' => '(:bundle)/admin.php',
+                'Admin\\Admin' => '(:bundle)/admin.php',
                 'Admin_Base_Controller' => '(:bundle)/controllers/base.php',
             ),
             /*'directories' => array(

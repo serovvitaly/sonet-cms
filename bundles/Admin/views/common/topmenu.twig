@@ -19,7 +19,7 @@
     <div class="tabbable">
       <ul class="nav nav-tabs" style="padding-left: 150px;">
       {% for item in topmenu %}
-        <li class=""><a href="#{{ topmenu.id }}" data-toggle="tab">{{ topmenu.title }}</a></li>
+        <li class=""><a href="#{{ item.id }}" data-toggle="tab">{{ item.title }}</a></li>
       {% endfor %}
       
         <li class="active"><a href="#tab1" data-toggle="tab">Администрирование</a></li>

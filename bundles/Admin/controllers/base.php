@@ -22,11 +22,13 @@ class Admin_Base_Controller extends Controller
     
     public function before()
     {
+        //$events_begin = Event::fire('admin.before.begin');
+        
         parent::before();
         
         $this->layout = View::make('admin::_layout');
         
-        $this->layout->topmenu = array(
+        array(
             array(
                 'title' => 'Администрирование',
                 'id'    => 'administrate',
@@ -49,6 +51,17 @@ class Admin_Base_Controller extends Controller
             ),
         );
         
+        $this->layout->topmenu = Event::fire('admin.topmenu.waiting');
+    }
+    
+    
+    public function after($response)
+    {
+        //$events_begin = Event::fire('admin.after.begin');
+        
+        parent::after($response);
+        
+        //$events_end = Event::fire('admin.after.begin');
     }
     
 
