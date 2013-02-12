@@ -20,5 +20,13 @@ class Admin_Base_Controller extends Controller
 	}
     
     
+    public function before()
+    {
+        parent::before();
+        
+        $this->layout = View::make('admin::_layout');
+        
+    }
+    
 
 }
