@@ -51,7 +51,9 @@ class Admin_Base_Controller extends Controller
             ),
         );
         
-        $this->layout->topmenu = Event::fire('admin.topmenu.waiting');
+        $topmenu = Event::fire('admin.topmenu.waiting');
+        
+        $this->layout->topmenu = $topmenu;
     }
     
     
